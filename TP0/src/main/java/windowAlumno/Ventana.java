@@ -29,7 +29,7 @@ public class Ventana extends MainWindow<Alumno> {
 
 	    new Button(mainPanel) //
 	    .setCaption("Loguear") //
-	    .onClick(() -> getModelObject().ingresar());
+	    .onClick(() -> getModelObject().cargarDatosDesdeJSON(null));
 
 	    new Label(mainPanel) //
 	    .setBackground(Color.YELLOW) //
@@ -37,8 +37,8 @@ public class Ventana extends MainWindow<Alumno> {
 
 	  }
 
-	public static void main(String[] args) {
-	    new Ventana().startApplication();
-	  }
+//	public static void main(String[] args) {
+//	    new Ventana().startApplication();
+//	  }
 
 }

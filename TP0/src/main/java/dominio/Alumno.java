@@ -2,30 +2,50 @@ package dominio;
 
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.uqbar.commons.utils.Observable;
 
 @Observable
 public class Alumno{
-	String nombre;
-	String apellido;
-	Integer legajo;
-	String userGit;
-	String TOKEN;
-	List<Tarea> tareas;
+	private String nombre;
+	private String apellido;
+	private Integer legajo;
+	private String userGit;
+	private String TOKEN;
+	private List<Tarea> tareas;
+	private static Alumno instance = null;
 	
-	public Alumno() {
-		new Alumno();
-	}
 	
-	public void ingresar(){
+	public static Alumno getInstance() {
+	      if(instance == null) {
+	         instance = new Alumno();
+	      }
+	      return instance;
+	   }
+	
+
+	
+	public void cargarDatosDesdeJSON(JSONObject jObj){
+		Alumno alumno = Alumno.getInstance();
+		alumno.setNombre((String) jObj.get("first_name"));
+		alumno.setApellido((String) jObj.get("last_name"));
+		alumno.setLegajo((Integer) jObj.get("code"));
+		alumno.setUserGit((String) jObj.get("github_user"));
 		return;
-		/*
-		 * ¿Pregunta a la pagina ?
-		 */
 	}
 	
 	
-	
+	@SuppressWarnings("unchecked")
+	public JSONObject crearJSON(){ 
+		JSONObject obj = new JSONObject();
+		obj.put("code", this.legajo);
+        obj.put("first_name", this.nombre);
+        obj.put("last_name", this.apellido);
+        obj.put("github_user", this.userGit);
+        
+		return obj;
+	}
+
 	
 	
 	
@@ -63,5 +83,7 @@ public class Alumno{
 		TOKEN = tOKEN;
 	}
 
-
+	
+	
 }
+
