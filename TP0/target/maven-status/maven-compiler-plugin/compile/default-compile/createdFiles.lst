@@ -1,6 +1,10 @@
 dominio\Tarea.class
 dominio\Calificacion.class
+dominio\CalificacionConceptual.class
 dominio\FuncionVentana.class
-windowAlumno\Ventana.class
+windowAlumno\AppPrueba.class
 dominio\HTTPService.class
+dominio\CalificacionNumerica.class
+windowAlumno\AppWindow.class
 dominio\Alumno.class
+windowAlumno\App.class

@@ -1,6 +1,5 @@
 package dominio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.JSONObject;
@@ -27,7 +26,8 @@ public class Alumno {
 		Alumno alumno = Alumno.getInstance();
 		alumno.setNombre((String) jObj.get("first_name"));
 		alumno.setApellido((String) jObj.get("last_name"));
-		alumno.setLegajo((Integer) jObj.get("code"));
+		String legajoString = ((String) jObj.get("code"));
+		alumno.setLegajo(Integer.parseInt(legajoString));
 		alumno.setUserGit((String) jObj.get("github_user"));
 		return;
 	}
@@ -42,9 +42,9 @@ public class Alumno {
 
 		return obj;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public void cargarAsignaturas(JSONObject jObj) {	
+	public void cargarAsignaturas(JSONObject jObj) {
 		List<JSONObject> listaTareas = (List<JSONObject>) jObj.get("assignments");
 		for (Integer i = 0; i < listaTareas.size(); i++) {
 			Tarea tarea = new Tarea();
@@ -92,8 +92,8 @@ public class Alumno {
 		return TOKEN;
 	}
 
-	public void setTOKEN(String tOKEN) {
-		TOKEN = tOKEN;
+	public void setTOKEN(String Token) {
+		TOKEN = Token;
 	}
 
 	public List<Tarea> getTareas() {
@@ -103,5 +103,5 @@ public class Alumno {
 	public void setTareas(List<Tarea> tareas) {
 		this.tareas = tareas;
 	}
-	
+
 }

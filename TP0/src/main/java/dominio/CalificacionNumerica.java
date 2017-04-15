@@ -4,7 +4,7 @@ public class CalificacionNumerica extends Calificacion {
 
 	private String descripcion;
 	private Integer valor;
-	
+
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -23,7 +23,7 @@ public class CalificacionNumerica extends Calificacion {
 
 	@Override
 	boolean aprobado() {
-		return (this.getValor()>=6);
+		return (this.getValor() >= 6);
 	}
 
 }
